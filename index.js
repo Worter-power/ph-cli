@@ -133,6 +133,30 @@ program
                         let package = handlebars.compile(packageStr)(params);
                         // 重新写入文件
                         fs.writeFileSync(packagePath, package);
+                        // 重写 webpack.config.js
+                        let webpackPath = `${projectName}/webpack.config.js`;
+                        let webpackStr = fs.readFileSync(webpackPath, 'utf-8');
+                        let webpack = handlebars.compile(webpackStr)({name: answers.name});
+                        fs.writeFileSync(webpackPath, webpack);
+                        // 重写 version.json
+                        let versionPath = `${projectName}/version.json`;
+                        let versionStr = fs.readFileSync(versionPath, 'utf-8');
+                        let version = handlebars.compile(versionStr)({name: answers.name, time: `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`});
+                        fs.writeFileSync(versionPath, version);
+                        // 重写路由文件
+                        let routerPath = `${projectName}/src/page/base/route.config.json`;
+                        let routerStr = fs.readFileSync(routerPath, 'utf-8');
+                        let router = handlebars.compile(routerStr)({name: answers.name});
+                        fs.writeFileSync(routerPath, router);
+                        // // 重命名a文件夹为b 
+                        fs.rename(`${projectName}/src/page/base`, `${projectName}/src/page/${answers.name}`, function(err){ 
+                            if(err){ 
+                                console.log("重命名失败！"); 
+                            }else{ 
+                                console.log("重命名成功！"); 
+                            } 
+                        });
+
                         if (params.sass) {
                         	// 由于国内网络原因，node-sass可能需要翻墙才能下载，所以如果用户选择了sass预处理器则需要创建.npmrc文件，并写入node-sass的代理下载地址
                             const npmrcPath = `${projectName}/.npmrc`;
