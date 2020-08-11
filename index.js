@@ -34,7 +34,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 
 // 模板下载地址
-const downloadUrl = 'direct:https://github.com/Worter-power/ph-cli/tree/master/example';
+const downloadUrl = 'direct:https://github.com/Worter-power/ph-demo.git';
 
 // 设置脚手架版本
 program.version('1.0.0', '-v, --version');
