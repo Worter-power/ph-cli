@@ -1,0 +1,49 @@
+{
+	"extends": [
+		"tslint-eslint-rules"
+	],
+	"env": {  
+		"browser": true,  
+		"node": true,  
+		"commonjs": true  
+	}, 
+    "jsRules": true,
+	"rules": {
+		"ter-indent": [ true, 4,
+			{
+				"SwitchCase": 4,
+				"FunctionExpression": {
+					"parameters": 1,
+      				"body": 1
+				}
+			}
+		]
+	},
+    "globals": {
+        "require": true,
+        "document": true,
+		"localStorage": true,
+		"window": true,
+		"jQuery": true,
+		"$": true,
+		"_": true,
+		"request": true,
+		"Vuex": true,
+		"BUS": true,
+		"VueRouter": true,
+		"Vue": true,
+		"notification": true,
+		"LoginBox": true,
+		"isLogined": true,
+		"THEME": true,
+		"InitProject": true,
+		"fullScreen": true,
+		"moment": true,
+		"STORE": true,
+		"PH": true,
+		"isDev": true,
+		"ELEMENT": true,
+		"FILEVIEW": true,
+		"win": true
+    }
+  }
