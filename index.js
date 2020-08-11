@@ -34,7 +34,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 
 // 模板下载地址
-const downloadUrl = 'direct:https://github.com/c10342/react-multipage-template.git';
+const downloadUrl = 'direct:https://github.com/Worter-power/ph-cli/tree/master/example';
 
 // 设置脚手架版本
 program.version('1.0.0', '-v, --version');
